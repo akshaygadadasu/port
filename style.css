@@ -1,0 +1,61 @@
+/* Colour & Type System */
+:root {
+    --brand: #2563eb;
+    --ink: #1f2937;
+    --bg-color: #f9fafb;
+    --card-bg: #ffffff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--ink);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Fluid Images Rule */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Flexbox Layout for Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--card-bg);
+}
+
+header nav a {
+    margin-left: 1rem;
+    color: var(--brand);
+    text-decoration: none;
+}
+
+/* Base Layout (Mobile First - 1 Column) */
+section {
+    padding: 2rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column on mobile */
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+}
+
+/* Media Query Breakpoint (Desktop - 2 to 3 Columns) */
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on larger screens */
+    }
+}
