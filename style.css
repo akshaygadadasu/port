@@ -1,61 +1,119 @@
-/* Colour & Type System */
+/* --- Colorful Variable System --- */
 :root {
-    --brand: #2563eb;
-    --ink: #1f2937;
-    --bg-color: #f9fafb;
-    --card-bg: #ffffff;
+    --page-bg: #f1f5f9;      /* Light grey background to make boxes pop */
+    --text-dark: #0f172a;    /* Dark navy text for readability */
+    --link-color: #4f46e5;   /* Indigo links */
+    
+    /* Box Colors */
+    --color-header: #ffffff; /* White */
+    --color-about: #e0f2fe;  /* Light Blue */
+    --color-proj1: #fef08a;  /* Light Yellow */
+    --color-proj2: #bbf7d0;  /* Light Green */
+    --color-contact: #f3e8ff; /* Light Purple */
 }
 
-body {
-    font-family: Arial, sans-serif;
-    color: var(--ink);
-    background-color: var(--bg-color);
+/* --- Base Reset --- */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Fluid Images Rule */
-img {
-    max-width: 100%;
-    height: auto;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--page-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding: 2rem 1rem; /* Spacing around the edges of the screen */
 }
 
-/* Flexbox Layout for Header */
+/* --- The Box Layout System --- */
+header, main, footer {
+    max-width: 800px;
+    margin: 0 auto; /* Centers everything */
+}
+
+/* Applies to all distinct sections */
+.box {
+    padding: 2rem;
+    border-radius: 16px; /* Soft, rounded corners */
+    margin-bottom: 2rem; /* Clear separation between boxes */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* Soft shadow */
+}
+
+/* --- Header Box --- */
 header {
+    background-color: var(--color-header);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: var(--card-bg);
 }
 
 header nav a {
-    margin-left: 1rem;
-    color: var(--brand);
+    margin-left: 1.5rem;
     text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
 }
 
-/* Base Layout (Mobile First - 1 Column) */
-section {
-    padding: 2rem;
+header nav a:hover {
+    color: var(--link-color);
 }
 
+/* --- About Box --- */
+.about-box {
+    background-color: var(--color-about);
+}
+
+/* --- Projects Section --- */
+/* The section heading sits outside the boxes */
+#projects h2 {
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+}
+
+/* Grid Layout for the Project Boxes */
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr; /* 1 column on mobile */
+    grid-template-columns: 1fr; /* 1 column on phones */
     gap: 1.5rem;
 }
 
-.project-card {
-    background-color: var(--card-bg);
-    padding: 1rem;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
+.project-box-1 {
+    background-color: var(--color-proj1);
+    margin-bottom: 0; /* Resetting bottom margin since gap handles spacing */
 }
 
-/* Media Query Breakpoint (Desktop - 2 to 3 Columns) */
+.project-box-2 {
+    background-color: var(--color-proj2);
+    margin-bottom: 0;
+}
+
+/* Project Links */
+.box a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.box a:hover {
+    text-decoration: underline;
+}
+
+/* --- Contact Box --- */
+.contact-box {
+    background-color: var(--color-contact);
+}
+
+.contact-box a {
+    margin-right: 1.5rem;
+}
+
+/* --- Responsive Layout (Desktop) --- */
 @media (min-width: 768px) {
     .grid-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on larger screens */
+        grid-template-columns: repeat(2, 1fr); /* 2 columns side-by-side */
     }
 }
